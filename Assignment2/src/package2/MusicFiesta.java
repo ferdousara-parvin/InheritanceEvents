@@ -18,7 +18,23 @@ public class MusicFiesta extends Festival {
         this.numberOfBands = numberOfBands;
     }
     
-    // Copy constructor
+    //Copy constructor
+    public MusicFiesta(MusicFiesta other) {
+        super(other.name,other.ticketPrice, other.numberOfDays, other.year, other.month, other.numberOfCities);
+        this.numberOfBands = other.numberOfBands;
+    }
+    
+    //Equals method
+    public boolean equals(MusicFiesta other){
+    if(super.equals(other) && this.numberOfBands == other.numberOfBands) return true;
+    else return false;
+    }
+    
+    //toString method
+    @Override 
+    public String toString(){
+    return super.toString() + " This music fiesta will host " + numberOfBands + " bands.";
+    }
 
 
 

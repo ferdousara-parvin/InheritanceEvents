@@ -18,7 +18,21 @@ public class CulturalFiesta extends Festival {
         this.numberOfSpokenLanguage = numberOfSpokenLanguage;
     }
     
-    // Copy constructor
+    //Copy constructor
+    public CulturalFiesta(CulturalFiesta other){
+        super(other.name, other.ticketPrice, other.numberOfDays, other.year, other.month, other.numberOfCities);
+        this.numberOfSpokenLanguage = other.numberOfSpokenLanguage;
+    }
+    
+    public boolean equals(CulturalFiesta other){
+    if(super.equals(other) && this.numberOfSpokenLanguage == other.numberOfSpokenLanguage) return true;
+    else return false;
+    }
+    
+    @Override
+    public String toString(){
+    return super.toString() + "\nThis cultural fiesta has " + numberOfSpokenLanguage + " of spoken languages.";              
+     }
 
 
 

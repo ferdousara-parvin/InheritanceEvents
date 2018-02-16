@@ -19,7 +19,7 @@ public class Event {
         this.numberOfCities = numberOfCities;
     }
 
-    // Copy ocnstructor
+    // Copy constructor
     public Event(Event other) {
         this.year = other.year;
         this.month = other.month;
@@ -51,12 +51,25 @@ public class Event {
         this.numberOfCities = numberOfCities;
     }
 
-    // Equals method
+    //Equals method
+    public boolean equals(Event other) {
 
+        if (other == null || other.getClass().getSimpleName().equalsIgnoreCase(this.getClass().getSimpleName())) {
+            return false;
+        }
+
+        if (this.month == other.month && this.year == other.year && this.numberOfCities == other.numberOfCities) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    
     // toString method
     @Override
     public String toString() {
-        return "This event will be held in" + month + " " + year + " in " + numberOfCities + " different cities";
+        return "This event will be held in " + year + ", " + month + " in " + numberOfCities + " different cities.";
     }
 
 }
