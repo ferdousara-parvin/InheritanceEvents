@@ -2,6 +2,7 @@ package package1;
 
 public class Event {
 
+    // Attributes
     protected int year;
     protected int month;
     protected int numberOfCities;
@@ -51,21 +52,32 @@ public class Event {
         this.numberOfCities = numberOfCities;
     }
 
-    //Equals method
-    public boolean equals(Event other) {
+    // Equals method
+    public boolean equals(Object other) {
 
-        if (other == null || other.getClass().getSimpleName().equalsIgnoreCase(this.getClass().getSimpleName())) {
+        // Check if we are comparing two events
+        /* TODO: Where do we need to put the ocmments? --> You  need  to  add  a  comment  indicating  how  effective  these  null verifications inside 
+        the method will be in relation to protecting your program from crashing!*/
+        if (other == null) {
+            System.out.println("This reference points to no object");
+            return false;
+        }
+        if (!(other.getClass().getSimpleName().equalsIgnoreCase(this.getClass().getSimpleName()))) {
+            System.out.println("This is not comparing two Event objects");
             return false;
         }
 
-        if (this.month == other.month && this.year == other.year && this.numberOfCities == other.numberOfCities) {
+        // Since now, we're sure that Object other is an Event object, we can cast it
+        Event event = (Event) other;
+
+        if (this.month == event.month && this.year == event.year && this.numberOfCities == event.numberOfCities) {
             return true;
         } else {
             return false;
         }
 
     }
-    
+
     // toString method
     @Override
     public String toString() {
