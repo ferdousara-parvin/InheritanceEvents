@@ -7,6 +7,9 @@ import package4.Fair;
 public class Driver {
 
     static MusicFiesta mf1; // Created to test equality of two objects
+    
+    //TODO: PUt constants
+    static final int ZERO = 0;
 
     public static void main(String[] args) {
 
@@ -61,17 +64,17 @@ public class Driver {
             new SportCompetition(2, 2018, 8, 4, SportCompetition.Season.SUMMER)
         };
 
-        //Display events in list2 and seperate them with a divider (for clarity)
-        for (int i = 0; i < list2.length; i++) {
+        //Display events in list2 and seperate them with a divider (Purpose of this for loop: for clarity only)
+        for (int i = ZERO; i < list2.length; i++) {
             System.out.println("#" + i + ". " + list2[i]);
             System.out.println("----------------------------------------------------------------------");
         }
 
         //Determine the most "popular" event
-        int leastPopular = 0;
-        int mostPopular = 0;
+        int leastPopular = ZERO;
+        int mostPopular = ZERO;
 
-        for (int i = 0; i < list2.length; i++) {
+        for (int i = ZERO; i < list2.length; i++) {
             for (int k = 1; k < list2.length; k++) {
                 if (list2[i].numberOfCities == list2[leastPopular].numberOfCities || list2[i].numberOfCities == list2[mostPopular].numberOfCities) {
                     break;
@@ -87,7 +90,7 @@ public class Driver {
         String output2 = "The event that will include the most amount of cities: ";
 
         //Iterate through the list and display all the events that are the least and most popular
-        for (int i = 0; i < list2.length; i++) {
+        for (int i = ZERO; i < list2.length; i++) {
             if (list2[i].numberOfCities == list2[leastPopular].numberOfCities) {
                 output1 += " #" + i;
             }
@@ -99,7 +102,7 @@ public class Driver {
 
         System.out.println(output1 + "\n" + output2);
 
-        //TODO FERDOU: Determine the events that are happening during the same year
+        String output3 = "Events #";
     }
 
 }
