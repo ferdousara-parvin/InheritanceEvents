@@ -1,3 +1,9 @@
+// Assignment 2
+// Question: Part I and II 
+// Written by: Viveka Anban (40063308) and Ferdousara Parvin (40062738)
+/* Purpose: The purpose of this program is to put into practice some concepts learnt in class such as the concept of inheritance, packages, constructors, 
+access rights, method overriding, etc. For this assignment, we had to develop a program that would help manage the numerous events that are being held or have been held. */
+
 package package1;
 
 import package2.*;
@@ -10,11 +16,15 @@ public class Driver {
 
     //TODO: PUt constants
     static final int ZERO = 0;
+    static final int ONE = 1;
+    static final int TWO = 2;
+    static final int TWO_THOUSAND_AND_EIGHT = 2018;
+    static final int TWO_THOUSAND_AND_NINE = 2019;
 
     public static Event[] copyFestival(Event[] eventArray) {
         return;
     }
-    
+
     public static void main(String[] args) {
 
         // Print a welcome message
@@ -203,10 +213,9 @@ public class Driver {
             System.out.println(e);
             System.out.println("----------------------------------------------------------------------");
         }
-        
-        /* As we can see in the output, copiedList3 (coppied array with 12 Event object) is an exact copy of list3 9original array 
-        with 12 Event objects) because by using copy constructors, we were able to create a clone of every single Event object from the original array */
 
+        /* As we can see in the output, copiedList3 (coppied array with 12 Event object) is an exact copy of list3 9original array 
+         with 12 Event objects) because by using copy constructors, we were able to create a clone of every single Event object from the original array */
         // Print closing message
         System.out.println(
                 "\n--------------------------------------------\n"

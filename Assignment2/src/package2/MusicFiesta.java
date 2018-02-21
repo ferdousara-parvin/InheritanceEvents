@@ -1,3 +1,7 @@
+// Assignment 2
+// Question: Part I
+// Written by: Viveka Anban (40063308) and Ferdousara Parvin (40062738)
+
 package package2;
 
 public class MusicFiesta extends Festival {
