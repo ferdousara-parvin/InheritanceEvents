@@ -138,7 +138,6 @@ public class Driver {
             new SportCompetition(TWO, TWO_THOUSAND_AND_EIGHTEEN, EIGHT, FOUR, SportCompetition.Season.SUMMER)
         };
 
-
         //-------------Most/least amount of cities-------------------//
         System.out.println("\n*************************************************");
         System.out.println("Finding events with least/most amount of cities");
@@ -243,14 +242,18 @@ public class Driver {
         System.out.println("The following events will happen during the same year: ");
 
         for (int i = ZERO; i < sortedYears.length - 1; i++) {
+
             if (i == 0 || sortedYears[i] > sortedYears[i - 1]) { // Whenever "a new year" begins, print the year in addition to the Event info
-                System.out.println("\n" + sortedYears[i] + ": ");
-                for (int k = ZERO; k < list2.length; k++) {
-                    if (list2[k].getYear() == sortedYears[i]) {
-                        System.out.println("\n#" + k + ". " + list2[k]);
+                if (sortedYears[i] == sortedYears[i + ONE]) { // Check if the year repeates or if there is only one event on that year
+                    System.out.println("\n" + sortedYears[i] + ": ");
+                    for (int k = ZERO; k < list2.length; k++) {
+                        if (list2[k].getYear() == sortedYears[i]) {
+                            System.out.println("\n#" + k + ". " + list2[k]);
+                        }
                     }
                 }
-            } 
+
+            }
 
         }
 
