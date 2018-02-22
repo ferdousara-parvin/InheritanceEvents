@@ -247,27 +247,27 @@ public class Driver {
 
         System.out.println("The following events will happen during the same year: ");
 
-        
-        //BS
-//        for (int i = ZERO; i < list2.length - 1; i++) {
-//
-//            if (i == 0 || sortedYears[i] > sortedYears[i - 1]) { // Whenever "a new year" begins, print the year in addition to the Event info
-//                System.out.println("\n" + sortedYears[i] + ": ");
-//                for (int k = ZERO; k < list2.length; k++) {
-//                    if (list2[i].getYear() == sortedYears[i]) {
-//                        System.out.println("\n#" + k + ". " + list2[k]);
-//                    }
-//                }
-//            } 
-////            else {
-////                for (int k = ZERO; k < list2.length; k++) {
-////                    if (list2[i].getYear() == sortedYears[i]) {
-////                        System.out.println("\n#" + k + ". " + list2[k]);
-////                    }
-////                }
-////            }
-//
-//        }
+    
+       
+        for (int i = ZERO; i < sortedYears.length - 1; i++) {
+
+            if (i == 0 || sortedYears[i] > sortedYears[i - 1]) { // Whenever "a new year" begins, print the year in addition to the Event info
+                System.out.println("\n" + sortedYears[i] + ": ");
+                for (int k = ZERO; k < list2.length; k++) {
+                    if (list2[k].getYear() == sortedYears[i]) {
+                        System.out.println("\n#" + k + ". " + list2[k]);
+                    }
+                }
+            } 
+            else {
+                for (int k = ZERO; k < list2.length; k++) {
+                    if (list2[i].getYear() == sortedYears[i]) {
+                        System.out.println("\n#" + k + ". " + list2[k]);
+                    }
+                }
+            }
+
+        }
 
         System.out.println("\n--------------------------------PART II-------------------------------");
 
