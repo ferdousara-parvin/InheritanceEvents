@@ -2,7 +2,9 @@
 // Question: Part I and II 
 // Written by: Viveka Anban (40063308) and Ferdousara Parvin (40062738)
 /* Purpose: The purpose of this program is to put into practice some concepts learnt in class such as the concept of inheritance, packages, constructors, 
-access rights, method overriding, etc. For this assignment, we had to develop a program that would help manage the numerous events that are being held or have been held. */
+access rights, method overriding, etc. For this assignment, we had to develop a program that would help manage the numerous events that are being held or have been held. 
+In fact, we created different types of Events, some of which were subclasses of Event class or even a subclass of Festival, a subclass of Event. 
+We then played with objects of these classes in the Driver class to understand the concepts stated above. We also played with the access rights of some of the attributes.*/
 
  /*
 PART 2:
@@ -10,7 +12,7 @@ In Part 1, most of the attributes in parent classes are protected as all the cla
 Therefore, there was no security risks by opening the access rights and, thus, allowing classes from different packages access to Event attributes as all classes are derived from Event class.
 
 However, as there were room for tighter restriction, in Part 2, we changed most of the access rights of all classes to private.
-This meant that whenever we called those attributes by name (super ctor, copy ctor), we had to change the code and use accessors instead.
+This meant that whenever we called those attributes by name (super ctor, copy ctor), we had to change the code and use getters and setters instead.
  */
 package package1;
 
@@ -136,13 +138,6 @@ public class Driver {
             new SportCompetition(TWO, TWO_THOUSAND_AND_EIGHTEEN, EIGHT, FOUR, SportCompetition.Season.SUMMER)
         };
 
-        System.out.println("//Array of 10 Event objects//");
-
-        // Display events in list2 and seperate them with a divider (Purpose of this for loop: for clarity only)
-        for (int i = ZERO; i < list2.length; i++) {
-            System.out.println("#" + i + ". " + list2[i]);
-            System.out.println("----------------------------------------------------------------------");
-        }
 
         //-------------Most/least amount of cities-------------------//
         System.out.println("\n*************************************************");
@@ -247,10 +242,7 @@ public class Driver {
 
         System.out.println("The following events will happen during the same year: ");
 
-    
-       
         for (int i = ZERO; i < sortedYears.length - 1; i++) {
-
             if (i == 0 || sortedYears[i] > sortedYears[i - 1]) { // Whenever "a new year" begins, print the year in addition to the Event info
                 System.out.println("\n" + sortedYears[i] + ": ");
                 for (int k = ZERO; k < list2.length; k++) {
@@ -259,13 +251,6 @@ public class Driver {
                     }
                 }
             } 
-            else {
-                for (int k = ZERO; k < list2.length; k++) {
-                    if (list2[i].getYear() == sortedYears[i]) {
-                        System.out.println("\n#" + k + ". " + list2[k]);
-                    }
-                }
-            }
 
         }
 
