@@ -34,14 +34,13 @@ public class Driver {
     static final int NINE = 9;
     static final int TEN = 10;
     static final int TWELVE = 12;
-    
+
     static final int TWENTY = 20;
     static final int TWENTY_THREE = 23;
     static final int TWENTY_FIVE = 23;
     static final int THIRTY = 30;
     static final int SIX_HUNDRED = 30;
-    
-     
+
     static final int TWO_THOUSAND_AND_FIFTEEN = 2015;
     static final int TWO_THOUSAND_AND_EIGHTEEN = 2018;
     static final int TWO_THOUSAND_AND_NINETEEN = 2019;
@@ -218,44 +217,57 @@ public class Driver {
         System.out.println("Finding events held the same year");
         System.out.println("*************************************************\n");
 
-        int[] yearWithMultipleEventsAndAlreadyPrinted = {ZERO, ZERO, ZERO, ZERO}; // Since in list2, there are four different possibility of years (2008, 2015, 2018, and 2019)
-        int index = ZERO;
+        /*
+        Sort the list2 according to the year : 
+        Compare each element to every element following it. If an event with a more recent year is found, swap places with the original event.
+         */
+        //Create an array with the year attribute of every Event in list2
+        int[] sortedYears = new int[list2.length];
 
-        int[] indexYears = new int[list2.length];
-
-        // Loop through list2
         for (int i = ZERO; i < list2.length; i++) {
-
-            String output = "The following events will be held in the same year: #" + i;
-            int numberOfMatch = ZERO; // initialize to 0 everytime we loop in the main for loop
-
-            // Compare every event's year to every other event's year except its own
-            for (int j = ZERO; j < list2.length; j++) {
-                if (list2[i].getYear() == list2[j].getYear() && i != j) { // i != j is written so that we do not ocmpare an event to itself
-                    output += " #" + j; // Add the event's index in the list2 array to the string output
-                    numberOfMatch++; // to keep track of how many matches we have for the same year
-                }
-            }
-
-            // Events occuring in the same year are printed if there is at least one match (two events in the same year) and if that year has not been printed yet
-            if (numberOfMatch > ZERO) { // Two events or more have the same year
-
-                boolean isAMatch = false; // initialize isAMath to false before going through the if statement
-
-                for (int k = ZERO; k < yearWithMultipleEventsAndAlreadyPrinted.length; k++) {
-                    if (list2[i].getYear() == yearWithMultipleEventsAndAlreadyPrinted[k]) { // that year has already been printed
-                        isAMatch = true;
-                    }
-                }
-
-                if (!isAMatch) { // Will only go through this if statement if the specific year has not been printed yet
-                    System.out.println(output + " which is in " + list2[i].getYear()); // Print output
-                    yearWithMultipleEventsAndAlreadyPrinted[index] = list2[i].getYear(); // Add the year to the array yearWithMultipleEventsAndAlreadyPrinted to remember that we already printed all the events happening that year
-                    index++; // to add the next year to the next index of array yearWithMultipleEventsAndAlreadyPrinted
-                }
-
-            }
+            sortedYears[i] = list2[i].getYear();
         }
+
+        for (int i = ZERO; i < sortedYears.length - ONE; i++) {
+
+            // Find the minimum element in unsorted array
+            int indexOfSmallestYear = i;
+            for (int j = i + ONE; j < sortedYears.length; j++) // always compare the elements with the following elements (never itself)
+            {
+                if (sortedYears[j] < sortedYears[indexOfSmallestYear]) {
+                    indexOfSmallestYear = j;
+                }
+            }
+
+            // Swap the more recent year with the initial year
+            int temp = sortedYears[indexOfSmallestYear];
+            sortedYears[indexOfSmallestYear] = sortedYears[i];
+            sortedYears[i] = temp;
+        }
+
+        System.out.println("The following events will happen during the same year: ");
+
+        
+        //BS
+//        for (int i = ZERO; i < list2.length - 1; i++) {
+//
+//            if (i == 0 || sortedYears[i] > sortedYears[i - 1]) { // Whenever "a new year" begins, print the year in addition to the Event info
+//                System.out.println("\n" + sortedYears[i] + ": ");
+//                for (int k = ZERO; k < list2.length; k++) {
+//                    if (list2[i].getYear() == sortedYears[i]) {
+//                        System.out.println("\n#" + k + ". " + list2[k]);
+//                    }
+//                }
+//            } 
+////            else {
+////                for (int k = ZERO; k < list2.length; k++) {
+////                    if (list2[i].getYear() == sortedYears[i]) {
+////                        System.out.println("\n#" + k + ". " + list2[k]);
+////                    }
+////                }
+////            }
+//
+//        }
 
         System.out.println("\n--------------------------------PART II-------------------------------");
 
