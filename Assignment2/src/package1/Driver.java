@@ -1,6 +1,5 @@
 // Assignment 2
 // Question: Part I and II 
-// Written by: Viveka Anban (40063308) and Ferdousara Parvin (40062738)
 /* Purpose: The purpose of this program is to put into practice some concepts learnt in class such as the concept of inheritance, packages, constructors, 
 access rights, method overriding, etc. For this assignment, we had to develop a program that would help manage the numerous events that are being held or have been held. 
 In fact, we created different types of Events, some of which were subclasses of Event class or even a subclass of Festival, a subclass of Event. 
